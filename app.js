@@ -1,11 +1,12 @@
 $(document).ready(function(){
-  debugger
-  console.log("Murat");
-  $.ajax({
-    type :"GET",
-    url :"https://spounder2.herokuapp.com/api/v1/users/1/tracks.json",
-    success :function(response){
-      console.log(response);
-    }
-  });
+var tracksCollectionInstance = new TracksCollection();
+tracksCollectionInstance.fetch({
+  success: function(response,xhr) {
+     console.log("Inside success");
+     console.log(response);
+  },
+  error: function (errorResponse) {
+         console.log(errorResponse)
+  }
+});
 });
